@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>GeoJSONLayer - 4.11</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.11/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.11/"></script>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/layers/GeoJSONLayer",
+        "esri/views/MapView",
+        "esri/widgets/Legend"
+      ], function(Map, GeoJSONLayer, MapView, Legend) {
+        // If GeoJSON files are not on the same domain as your website, a CORS enabled server
+        // or a proxy is required.
+        const url =
+          "https://jykwyl.github.io/webgis16/population.geojson";
+
+        // Paste the url into a browser's address bar to download and view the attributes
+        // in the GeoJSON file.
+       
+			const rotationRenderer = {
+				type: "simple", // autocasts as new SimpleRenderer()
+  symbol: {
+    type: "simple-fill",
+    outline: {
+      color: "lightgray",
+      width: 0.5
+    }
+  },
+  label: "population",
+  visualVariables: [
+    {
+      type: "color",
+      field: "pop2010",
+      stops: [{
+        value: 0,
+        color:"#00FF00",
+        label:"0"
+      },
+      {
+        value: 46026629,
+        color: "#FFFF00",
+        label:"46026629"
+      },
+      {
+        value: 104303132,
+        color: "#FF0000",
+        label:"104303132"
+      }]
+    }
+  ]
+};
+			
+			
+        const geojsonLayer = new GeoJSONLayer({
+          url: url,
+          renderer: rotationRenderer
+        });
+
+        const map = new Map({
+          basemap: "gray",
+          layers: [geojsonLayer]
+        });
+
+        const view = new MapView({
+          container: "viewDiv",
+          center: [-168, 46],
+          zoom: 3,
+          map: map
+        });
+ 			
+ 			view.ui.add(
+          new Legend({
+            view: view
+          }),
+          "bottom-left"
+        );
+    
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
