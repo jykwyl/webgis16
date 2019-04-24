@@ -94,13 +94,13 @@
 	      
         const geojsonLayer = new GeoJSONLayer({
           url: url,
-          renderer: rotationRenderer
+          renderer: rotationRenderer,
+	  popupTemplate:ppt
         });
 
         const map = new Map({
           basemap: "gray",
-          layers: [geojsonLayer],
-	  popupTemplate:ppt
+          layers: [geojsonLayer]
         });
 
         const view = new MapView({
