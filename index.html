@@ -73,7 +73,25 @@
   ]
 };
 			
-			
+	const ppt = {
+			title:"{ENGLISH}",
+			content:[
+				{
+					type:"fields",
+					fieldInfos:[
+						{
+							fieldName:"pop2000",
+							label:"2000年人口"
+						},
+						{
+							fieldName:"pop2010",
+							label:"2010年人口"
+						}
+						]
+				}
+				]
+		  };
+	      
         const geojsonLayer = new GeoJSONLayer({
           url: url,
           renderer: rotationRenderer
@@ -81,7 +99,8 @@
 
         const map = new Map({
           basemap: "gray",
-          layers: [geojsonLayer]
+          layers: [geojsonLayer],
+	  popupTemplate:ppt
         });
 
         const view = new MapView({
