@@ -1,0 +1,73 @@
+html,
+body,
+#viewDiv {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#mychart {
+	position: fixed ! important;
+	right: 0px;
+	top: 50px;
+	width: 250px;
+	height: 300px;
+	background-color: #C9C9C9;
+}
+
+#box {
+	position: fixed ! important;
+	right: 0px;
+	top: 100px;
+	width: 250px;
+	height: 250px;
+	position: relative;
+}
+
+#slt {
+	left: 0;
+	position: absolute;
+}
+
+#slt2 {
+	right: 0;
+	position: absolute;
+}
+
+.btns {
+	position: fixed ! important;
+	right: 5px;
+	top: 360px;
+}
+
+.checks {
+	position: fixed ! important;
+	right: 5px;
+	top: 480px;
+}
+
+#sltlayer {
+	position: fixed ! important;
+	right: 5px;
+	top: 525px;
+}
+.buffer{
+	position: fixed ! important;
+	right: 5px;
+	top: 605px;
+}
+#buf2 {
+	display: none;
+	position: fixed ! important;
+	right: 5px;
+	top: 625px;
+	width: auto;
+	height: auto;
+	background-color: #CDC673;
+}
+#topbar{
+	position: fixed ! important;
+	right: 5px;
+	top: 635px;
+}
